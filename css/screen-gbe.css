@@ -1,0 +1,212 @@
+body {
+    background: #ddd;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    line-height: 1.4;
+	font-size: 85%;
+	color: #444;
+	padding: 80px 0 30px;
+	margin: auto;
+}
+
+#wrap {
+	width: 700px;
+	margin: auto;
+}
+
+#dirlist {
+    background: #f8f8f8;
+    margin-bottom: 60px;
+    padding: 40px 40px 60px;
+    
+    -webkit-border-radius: 10px;
+       -moz-border-radius: 10px;
+            border-radius: 10px;
+            
+    -webkit-box-shadow: 0 10px 40px 10px rgba(0,0,0,.1);
+       -moz-box-shadow: 0 10px 40px 10px rgba(0,0,0,.1);
+            box-shadow: 0 10px 40px 10px rgba(0,0,0,.1);
+}
+
+a {
+	color: #0174A7;
+	text-shadow: 0 1px 0 #fff;
+	text-decoration: none;
+	
+    -webkit-transition: color 100ms ease-in-out;
+       -moz-transition:	color 100ms ease-in-out;
+         -o-transition:	color 100ms ease-in-out;
+            transition:	color 100ms ease-in-out;
+}
+
+a:hover {
+	color: #111;
+}
+
+h1#page-title {
+    font-size: 250%;
+    margin: 0 0 0.2em 0;
+    line-height: 0.9;
+    text-shadow: 0 1px 0 #fff;
+    color: #cc0f16;
+    letter-spacing: -1px;
+}
+
+h1#page-title strong {
+    display: block;
+	border-bottom: 1px solid #ddd;
+	font-size: 50%;
+	line-height: 1.8em;
+	letter-spacing: -0.03em;
+}
+
+/**** Table styling ****/
+
+tr a { font-weight: bold;}
+
+#dirlist table {
+    padding: 0px;
+    border-collapse: collapse;
+    width: 100%;
+    border-bottom: 1px solid #DDD;
+}
+
+tr:nth-child(even) { background: rgba(0,0,0,0.03); }
+
+tr,td,th {
+    border: 0;
+}
+
+td[align], td[valign], th {
+    padding: 3px 10px;
+}
+
+th {
+    text-align: right;
+	border-bottom: 1px solid #ccc;
+}
+
+th a {
+	color: #999;
+    text-decoration: none;
+}
+
+
+
+/* Name column header */
+th:nth-child(2) {
+    text-align: left;
+}
+
+/* Icon cells */
+tr td:nth-child(1) {
+    width: 24px;
+}
+
+/* Name cells */
+tr td:nth-child(2) {
+    width: 50%;
+}
+
+/* Last Modifed & Size */
+tr td:nth-child(3),
+tr td:nth-child(4) {
+    text-align: right;
+    font-size: 95%;
+}
+
+/* Hide Description column*/
+tr td:nth-child(5) { display: none;}
+
+/* hide ugly Apache icons */
+img[src^="/icons"] {
+   visibility: hidden;
+}
+
+/* directory links */
+td a[href*="/"] {
+    font-weight: bold;
+    color: #444;
+}
+td a {
+	display: block;
+	width: 100%;
+	padding: 7px 10px;
+}
+td a[href*="/"]:hover {
+    color: #0174A7;
+}
+
+/* icons */
+td a[href*="/"]:after,
+td a[href^="/"]:after {
+	content: '\0020';
+	background-position: right center;
+	background-repeat: no-repeat;
+	display: inline-block;
+	width: 16px;
+	height: 10px;
+	padding-left: 3px;
+	opacity: 0;
+    -webkit-transition: all 200ms ease-in-out;
+       -moz-transition: all 200ms ease-in-out;
+         -o-transition: all 200ms ease-in-out;
+            transition: all 200ms ease-in-out;
+}
+
+td a[href*="/"]:after { 
+	background-image: url(/.windex/icons/pointer-small.png);
+}
+td a[href^="/"]:after {
+	background-image: url(/.windex/icons/up-arrow.png);
+	height: 16px;
+	opacity: 1;
+	padding-left: 7px;
+	position: relative;
+	top: 0;
+}
+
+td a[href*="/"]:hover:after,
+td a[href^="/"]:hover:after {
+	opacity: 1;
+	padding-left: 7px;
+}
+
+td a[href*="/"]:hover:after { 
+
+}
+td a[href^="/"]:hover:after { 
+	top: -3px;
+}
+
+/* Parent Directory link  */
+td a[href^="/"] {
+    color: #0174A7;
+}
+td a[href^="/"]:hover { color: #111;}
+
+
+
+/**** README ****/
+
+#readme-jump {
+	position: absolute;
+	top: 134px;
+	margin-left: 539px;
+}
+
+h2.readme-title {
+    font-size: 0.95em;
+    padding-bottom: 0.4em;
+    border-bottom: 1px solid #DDD;
+}
+
+#readme pre {
+    border: 1px solid #CCC;
+    padding: 10px;
+    overflow-x: auto;
+    background: #FFF;
+    
+    -webkit-box-shadow: ins10 2px 2px 2px rgba(0,0,0,.1);
+       -moz-box-shadow: ins10 2px 2px 2px rgba(0,0,0,.1);
+            box-shadow: ins10 2px 2px 2px rgba(0,0,0,.1);
+}

@@ -5,7 +5,7 @@
     //=======================================================================
 
     // Windex path
-    $windexPath = '/windex';
+    $windexPath = '/.windex';
 
     // titleFormat
     //   How to format the <title> and <h1> text.  %DIR is replaced with the directory path.
@@ -15,24 +15,24 @@
 
     // showReadme
     //   If true, the contents of a README file will appear after
-    //   the directory listing.  
+    //   the directory listing.
     $showReadme = true;
 
     //=======================================================================
     // End of config
-    //=======================================================================    
-    
+    //=======================================================================
+
     // URI of current directory-
     $uri = urldecode($_SERVER['REQUEST_URI']);
     $uri = preg_replace("/\?.*$/", "", $uri);
     $uri = preg_replace("/\/ *$/", "", $uri);
-    
+
 
     //=======================================================================
     // Header
     //=======================================================================
-    
-    
+
+
     $titletext = str_replace("%DIR", $uri, $titleFormat). '/';
 
     // generate title path, with links to each parent folder
@@ -42,21 +42,21 @@
     foreach ($folders as $i => $folder) {
         $link = '';
         $backCount = $folderCount - $i -1;
-        for ($j=0; $j < $backCount; $j++) { 
+        for ($j=0; $j < $backCount; $j++) {
             $link .= '../';
         }
         $pathMarkup .= '<a href="'.$link.'">'.$folder.'/</a>';
-    }    
-    
+    }
+
     $pathMarkup = '<strong>'.$pathMarkup.'</strong>';
-    
+
     $h1text = str_replace("%DIR", $pathMarkup, $titleFormat);
-    
+
     //=======================================================================
     // Footer
     //=======================================================================
-    
-    
+
+
     $readmeMarkup = '';
     $currentDir = $_SERVER["DOCUMENT_ROOT"] . $uri . '/';
     if (is_dir($currentDir)) {
@@ -70,12 +70,12 @@
             }
             closedir($dh);
         }
-        
+
         if (isset($readmeFile)) {
             $fileInfo = pathinfo($readmeFile);
             $ext = isset($fileInfo['extension']) ? $fileInfo['extension'] : '';
             $readmeRaw = file_get_contents($currentDir.$readmeFile);
-        
+
             if ($ext == 'textile') {
                 require_once( $_SERVER["DOCUMENT_ROOT"]. $windexPath . '/textile.php');
                 $textile = new Textile();
@@ -88,12 +88,12 @@
             } else {
                 $readmeContent = '<pre>'."\n".$readmeRaw."\n".'</pre>';
             }
-        
+
             $readmeMarkup = '<div id="readme">'."\n"
                 .'<h2 class="readme-title"><a href="'.$readmeFile.'">'.$readmeFile.'</a></h2>'
                 ."\n".$readmeContent."\n".'</div> <!-- #readme -->'
             ;
-            
+
         }
     }
 
